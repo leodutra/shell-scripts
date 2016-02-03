@@ -1,6 +1,6 @@
 #!/bin/sh
 
-missing_repositories=(
+UNKNOWN_REPOSITORIES=(
   "ia32"
   "java-oracle"
   "docker"
@@ -9,13 +9,16 @@ missing_repositories=(
   "google-chrome"
 )
 
-repositories=(
+KNOWN_REPOSITORIES=(
   "ruby" "git" "build-essential"
 )
 
-to_install=( ${repositories[@]} ${missing_repositories[@]} )
+APPS_TO_INSTALL=( ${KNOWN_REPOSITORIES[@]} ${UNKNOWN_REPOSITORIES[@]} )
 
-#MY_PATH="`dirname \"$0\"`"   
+# Absolute path to this script, e.g. /home/user/bin/foo.sh
+SCRIPT=$(readlink -f "$0")
+# Absolute path this script is in, thus /home/user/bin
+SCRIPTPATH=$(dirname "$SCRIPT")
 
 log_wait() {
   echo -ne "$1... (please wait)"\\r
@@ -28,17 +31,17 @@ log_done() {
 
 add_repo() {
   log_wait "add repository $1"
-  bash ./repository-setup/$1.sh 1> /dev/null
+  bash $SCRIPTPATH/repository-setup/$1.sh 1> /dev/null
   log_done
 }
 
 install() {
   log_wait "install $1"
-  bash ./install-script/$1.sh 1> /dev/null
+  bash $SCRIPTPATH/install-scripts/$1.sh 1> /dev/null
   log_done
 }
 
-for i in "${missing_repositories[@]}"
+for i in "${UNKNOWN_REPOSITORIES[@]}"
 do
 	add_repo $i
 done
@@ -56,7 +59,7 @@ apt-get install -y -f -qq
 log_done
 
 
-for i in "${to_install[@]}"
+for i in "${APPS_TO_INSTALL[@]}"
 do
 	install $i
 done
