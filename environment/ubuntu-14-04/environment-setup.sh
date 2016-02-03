@@ -15,6 +15,8 @@ repositories=(
 
 to_install=( ${repositories[@]} ${missing_repositories[@]} )
 
+MY_PATH="`dirname \"$0\"`"   
+
 log_wait() {
   echo -ne "$1... (please wait)"\\r
   global_last_log_wait=$1
@@ -26,13 +28,13 @@ log_done() {
 
 add_repo() {
   log_wait "add repository $1"
-  bash `$PWD/repository-setup/$1.sh` 1> /dev/null
+  bash `$MY_PATH/repository-setup/$1.sh` 1> /dev/null
   log_done
 }
 
 install() {
   log_wait "install $1"
-  bash `$PWD/install-script/$1.sh` 1> /dev/null
+  bash `$MY_PATH/install-script/$1.sh` 1> /dev/null
   log_done
 }
 
