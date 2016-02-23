@@ -1,0 +1,3 @@
+#!/bin/sh
+# cd + ls
+cd "$@" && ls -la
