@@ -73,4 +73,3 @@ log_wait "apt autoclean"
 apt-get autoclean -y 1> /dev/null
 log_done
 
-mv $SCRIPTPATH/shell-enhancements/* /usr/local/bin
