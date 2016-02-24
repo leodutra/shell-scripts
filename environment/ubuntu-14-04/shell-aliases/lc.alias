@@ -1,0 +1,1 @@
+alias lc="cd \"$@\" && ls -la"
