@@ -10,7 +10,7 @@ UNKNOWN_REPOSITORIES=(
 )
 
 KNOWN_REPOSITORIES=(
-  "ruby" "git" "build-essential"
+  "ruby" "git" "build-essential" "tts-mscorefonts"
 )
 
 APPS_TO_INSTALL=( ${KNOWN_REPOSITORIES[@]} ${UNKNOWN_REPOSITORIES[@]} )
