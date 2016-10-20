@@ -1,7 +1,7 @@
 #!/bin/sh
 
 UNKNOWN_REPOSITORIES=(
-  "ia32"
+  "i386"
   "java-oracle"
   "docker"
   "node-js"
@@ -10,7 +10,10 @@ UNKNOWN_REPOSITORIES=(
 )
 
 KNOWN_REPOSITORIES=(
-  "ruby" "git" "build-essential" "tts-mscorefonts"
+  "ruby" 
+  "git" 
+  "build-essential" 
+  "tts-mscorefonts"
 )
 
 APPS_TO_INSTALL=( ${KNOWN_REPOSITORIES[@]} ${UNKNOWN_REPOSITORIES[@]} )
@@ -64,12 +67,10 @@ do
 	install $i
 done
 
+log_wait "apt autoclean"
+apt-get autoremove -y 1> /dev/null
+log_done
 
 log_wait "apt clean"
 apt-get clean -y 1> /dev/null
 log_done
-
-log_wait "apt autoclean"
-apt-get autoclean -y 1> /dev/null
-log_done
-
