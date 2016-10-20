@@ -7,6 +7,7 @@ UNKNOWN_REPOSITORIES=(
   "node-js"
   "atom-editor"
   "google-chrome"
+  "partners"
 )
 
 KNOWN_REPOSITORIES=(
@@ -14,6 +15,7 @@ KNOWN_REPOSITORIES=(
   "git" 
   "build-essential" 
   "tts-mscorefonts"
+  "gimp"
 )
 
 APPS_TO_INSTALL=( ${KNOWN_REPOSITORIES[@]} ${UNKNOWN_REPOSITORIES[@]} )
