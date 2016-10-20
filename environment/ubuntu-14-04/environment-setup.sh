@@ -7,6 +7,7 @@ UNKNOWN_REPOSITORIES=(
   "node-js"
   "atom-editor"
   "google-chrome"
+  "spotify"
 )
 
 KNOWN_REPOSITORIES=(
