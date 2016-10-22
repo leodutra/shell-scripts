@@ -8,6 +8,7 @@ UNKNOWN_REPOSITORIES=(
   "atom-editor"
   "google-chrome"
   "spotify"
+  "virtual-box"
 )
 
 KNOWN_REPOSITORIES=(
@@ -16,6 +17,7 @@ KNOWN_REPOSITORIES=(
   "build-essential" 
   "tts-mscorefonts"
   "gimp"
+  "bleachbit"
 )
 
 APPS_TO_INSTALL=( ${KNOWN_REPOSITORIES[@]} ${UNKNOWN_REPOSITORIES[@]} )
